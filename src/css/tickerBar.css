@@ -1,0 +1,11 @@
+/* You can (and should) fold this into your own CSS rather than including this file. */
+
+    .ticker--parent {        
+        display: flex;
+        flex-flow: row nowrap;
+        overflow-x: hidden;
+    }
+
+    .ticker--item {
+        flex: 0 0 auto;
+    }

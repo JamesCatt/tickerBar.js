@@ -1,0 +1,18 @@
+/* You can (and should) fold this into your own CSS rather than including this file. */
+
+    .ticker--parent {        
+        display: -webkit-box;        
+        display: -ms-flexbox;        
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-flow: row nowrap;
+                flex-flow: row nowrap;
+        overflow-x: hidden;
+    }
+
+    .ticker--item {
+        -webkit-box-flex: 0;
+            -ms-flex: 0 0 auto;
+                flex: 0 0 auto;
+    }

@@ -1,0 +1,222 @@
+<!doctype html>
+<html>
+<head>
+
+<title>tickerbar.js Tests</title>
+
+<link rel="stylesheet" href="../src/tickerbar.css">
+
+<style type="text/css">
+    
+    /* Special CSS for tests */
+    
+    body {
+        
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 20px;
+        font-weight: 300;
+        padding: 2em;
+        
+    }
+    
+    h2 {
+        
+        font-weight: 300;
+        
+    }
+    
+    code {
+        color: #999;
+    }
+    
+    .ticker--parent {
+        
+        border: 1px dashed black;
+        margin: 4rem auto;
+        overflow: visible;
+        width: 800px;
+        
+    }
+
+    .ticker--item {
+        
+        background: rgb(0,100,100);
+        color: white;
+        font-size: 32px;
+        text-align: center;
+        min-width: 100px;
+        
+    }
+    
+    .ticker--item__large {
+        
+        background: rgb(100,0,100);
+        margin-right: 20px;
+        width: 200px;
+        
+    }
+    
+</style>
+
+<script src="../src/tickerbar.es6.js"></script>
+
+</head>
+<body>
+
+<h1>tickerbar.js Tests</h1>
+
+
+
+<h2>No Options</h2>
+
+<div id="defaultTicker" class="ticker--parent">
+    <div class="ticker--item ticker--item__large">1</div>
+    <div class="ticker--item">2</div>
+    <div class="ticker--item ticker--item__large">3</div>
+    <div class="ticker--item">4</div>
+    <div class="ticker--item ticker--item__large">5</div>
+    <div class="ticker--item">6</div>
+    <div class="ticker--item ticker--item__large">7</div>
+    <div class="ticker--item">8</div>
+    <div class="ticker--item ticker--item__large">9</div>
+    <div class="ticker--item">10</div>
+</div>
+
+<script>
+
+    var defaultTicker = document.getElementById('defaultTicker');
+    var defaultTickerTicker = new tickerBar(defaultTicker);
+    
+</script>
+
+
+
+<h2>No Autostart</h2>
+<code>{ autoStart: false }</code>
+
+<div id="noAutostart" class="ticker--parent">
+    <div class="ticker--item ticker--item__large">1</div>
+    <div class="ticker--item">2</div>
+    <div class="ticker--item ticker--item__large">3</div>
+    <div class="ticker--item">4</div>
+    <div class="ticker--item ticker--item__large">5</div>
+    <div class="ticker--item">6</div>
+    <div class="ticker--item ticker--item__large">7</div>
+    <div class="ticker--item">8</div>
+    <div class="ticker--item ticker--item__large">9</div>
+    <div class="ticker--item">10</div>
+</div>
+
+<script>
+
+    var noAutostart = document.getElementById('noAutostart');
+    var noAutostartTicker = new tickerBar(noAutostart, { autoStart: false });
+    
+</script>
+
+
+
+<h2>No Autofill</h2>
+
+<code>{ autoFill: false }</code>
+
+<div id="noAutoFill" class="ticker--parent">
+    <div class="ticker--item ticker--item__large">1</div>
+    <div class="ticker--item">2</div>
+</div>
+
+<script>
+
+    var noAutoFill = document.getElementById('noAutoFill');
+    var noAutoFillTicker = new tickerBar(noAutoFill, { autoFill: false });
+    
+</script>
+
+
+
+<h2>Autofill</h2>
+
+<code>{ autoFill: true }</code>
+
+<div id="autoFill" class="ticker--parent">
+    <div class="ticker--item ticker--item__large">1</div>
+    <div class="ticker--item">2</div>
+</div>
+
+<script>
+
+    var autoFill = document.getElementById('autoFill');
+    var autoFillTicker = new tickerBar(autoFill, {});
+    
+</script>
+
+
+
+<h2>Custom Speed</h2>
+
+<code>{ pxPerSec: 30 }</code>
+
+<div id="customSpeed" class="ticker--parent">
+    <div class="ticker--item ticker--item__large">1</div>
+    <div class="ticker--item">2</div>
+    <div class="ticker--item ticker--item__large">3</div>
+    <div class="ticker--item">4</div>
+    <div class="ticker--item ticker--item__large">5</div>
+    <div class="ticker--item">6</div>
+    <div class="ticker--item ticker--item__large">7</div>
+    <div class="ticker--item">8</div>
+    <div class="ticker--item ticker--item__large">9</div>
+    <div class="ticker--item">10</div>
+</div>
+
+<script>
+
+    var customSpeed = document.getElementById('customSpeed');
+    var customSpeedTicker = new tickerBar(customSpeed, { pxPerSec: 30 });
+    
+</script>
+
+
+
+<h2>Manual Control</h2>
+
+<code>ticker.start();<br>ticker.stop();<br>ticker.toggle();</code>
+
+<div>
+    <button type="button" id="manualControl-start">Start</button>
+    <button type="button" id="manualControl-stop">Stop</button>
+    <button type="button" id="manualControl-toggle">Toggle</button>
+</div>
+
+<div id="manualControl" class="ticker--parent">
+    <div class="ticker--item ticker--item__large">1</div>
+    <div class="ticker--item">2</div>
+    <div class="ticker--item ticker--item__large">3</div>
+    <div class="ticker--item">4</div>
+    <div class="ticker--item ticker--item__large">5</div>
+    <div class="ticker--item">6</div>
+    <div class="ticker--item ticker--item__large">7</div>
+    <div class="ticker--item">8</div>
+    <div class="ticker--item ticker--item__large">9</div>
+    <div class="ticker--item">10</div>
+</div>
+
+<script>
+
+    var manualControl = document.getElementById('manualControl');
+    var manualControlTicker = new tickerBar(manualControl, { autoStart: false });
+    
+    document.getElementById('manualControl-start').addEventListener('click', function() {
+        manualControlTicker.start();
+    })
+    document.getElementById('manualControl-stop').addEventListener('click', function() {
+        manualControlTicker.stop();
+    })
+    document.getElementById('manualControl-toggle').addEventListener('click', function() {
+        manualControlTicker.toggle();
+    })
+    
+</script>
+
+</body>
+</html>
