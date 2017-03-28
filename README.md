@@ -35,18 +35,22 @@ If you wish, you can use the included stylesheet (which uses flexbox) or roll yo
 var defaultOptions = {
 
     pxPerSec: 60,
-    // Number of pixels per second to scroll. Note that tickerBar.js uses requestAnimationFrame so performance may vary.
+    // Number of pixels per second to scroll. Note that tickerBar.js uses
+    // requestAnimationFrame so performance may vary.
 
     autoStart: true,
     // Automatically start the ticker on creation.
     
     autoFill: true
-    //  If the ticker items don't fill the entire width of the parent on startup, duplicate them until they do.
-    // For example, if your ticker is 1000px wide but you only have 3 items at 100px wide each, then tickerBar.js will automatically create 3 additional copies of each item so you end up with:
+    // If the ticker items don't fill the entire width of the parent on startup,
+    // duplicate them until they do.
+    // For example, if your ticker is 1000px wide but you only have 3 items at 100px
+    // wide each, then tickerBar.js will automatically create 3 additional copies of
+    // each item so you end up with:
     //
     // (3 * 100px) * 4 == 1200px
 
-}
+};
 ```
 
 ## Methods
