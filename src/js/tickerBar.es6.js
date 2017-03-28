@@ -5,7 +5,7 @@
 *   Description: A Javascript plugin for creating newsticker-style, infinitely-scrolling bar.
 *   Author: James Catt
 *   License: MIT
-*   Docs: 
+*   Docs: https://github.com/JamesCatt/tickerBar.js
 *   Version: 1.0.0
 */
 

@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "A Javascript plugin for creating newsticker-style, infinitely-scrolling bar.",
   "main": "tickerBar.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JamesCatt/tickerBar.js"
+  },
   "scripts": {
     "test": "grunt lint",
     "build": "grunt build"
