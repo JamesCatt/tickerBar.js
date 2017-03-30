@@ -6,7 +6,7 @@
 *   Author: James Catt
 *   License: MIT
 *   Docs: https://github.com/JamesCatt/tickerBar.js
-*   Version: 1.0.0
+*   Version: 1.0.1
 */
 
 (function (root, factory) {
@@ -58,24 +58,17 @@
     // Public Methods
 
     tickerBar.prototype = {
+        
+        fill: function () {
 
-        start: function () {
-            
-            if (this.ticking) {
-                return; // do nothing if already started
-            }
-            
-            if (this.autoFill) {
+            if (getItemsTotalLength(this.tickerItems) - getItemLength(getWidestItem(this.tickerItems)) <= getTickerWidth(this.elem)) {
 
-                var newEls = [];
+                let newEls = [];
 
-                if (getItemsTotalLength(this.tickerItems) <= getTickerWidth(this.elem)) {
+                for (let i = 0; i < this.tickerItems.length; i++) {
 
-                    for (let i = 0; i < this.tickerItems.length; i++) {
+                    newEls.push(this.tickerItems[i].cloneNode(true));
 
-                        newEls.push(this.tickerItems[i].cloneNode(true));
-
-                    }
                 }
 
                 while (getItemsTotalLength(this.tickerItems) - getItemLength(getWidestItem(this.tickerItems)) <= getTickerWidth(this.elem)) {
@@ -87,7 +80,21 @@
                     }
 
                 }
+                
+            }
             
+        },
+
+        start: function () {
+            
+            if (this.ticking) {
+                return; // do nothing if already started
+            }
+            
+            if (this.autoFill) {
+                
+                this.fill();
+                
             }
 
             this.ticking = true;

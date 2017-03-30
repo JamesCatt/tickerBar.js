@@ -1,6 +1,6 @@
 {
   "name": "tickerBar.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Javascript plugin for creating newsticker-style, infinitely-scrolling bar.",
   "main": "tickerBar.js",
   "repository": {
@@ -8,7 +8,7 @@
     "url": "https://github.com/JamesCatt/tickerBar.js"
   },
   "scripts": {
-    "test": "grunt lint",
+    "test": "mocha",
     "build": "grunt build"
   },
   "author": "James Catt",
@@ -18,10 +18,12 @@
     "babel": "^6.23.0",
     "babel-cli": "^6.23.0",
     "babel-preset-es2015": "^6.24.0",
+    "chai": "^3.5.0",
     "grunt": "^1.0.1",
     "grunt-babel": "^6.0.0",
     "grunt-contrib-uglify": "^2.2.0",
     "grunt-eslint": "^19.0.0",
-    "grunt-postcss": "^0.8.0"
+    "grunt-postcss": "^0.8.0",
+    "mocha": "^3.2.0"
   }
 }

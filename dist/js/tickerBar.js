@@ -5,7 +5,7 @@
 *   Description: A Javascript plugin for creating newsticker-style, infinitely-scrolling bar.
 *   Author: James Catt
 *   License: MIT
-*   Docs: 
+*   Docs: https://github.com/JamesCatt/tickerBar.js
 *   Version: 1.0.0
 */
 
@@ -57,6 +57,27 @@
 
     tickerBar.prototype = {
 
+        fill: function fill() {
+
+            var newEls = [];
+
+            if (getItemsTotalLength(this.tickerItems) - getItemLength(getWidestItem(this.tickerItems)) <= getTickerWidth(this.elem)) {
+
+                for (var i = 0; i < this.tickerItems.length; i++) {
+
+                    newEls.push(this.tickerItems[i].cloneNode(true));
+                }
+            }
+
+            while (getItemsTotalLength(this.tickerItems) - getItemLength(getWidestItem(this.tickerItems)) <= getTickerWidth(this.elem)) {
+
+                for (var _i = 0; _i < newEls.length; _i++) {
+
+                    this.elem.appendChild(newEls[_i].cloneNode(true));
+                }
+            }
+        },
+
         start: function start() {
 
             if (this.ticking) {
@@ -65,23 +86,7 @@
 
             if (this.autoFill) {
 
-                var newEls = [];
-
-                if (getItemsTotalLength(this.tickerItems) <= getTickerWidth(this.elem)) {
-
-                    for (var i = 0; i < this.tickerItems.length; i++) {
-
-                        newEls.push(this.tickerItems[i].cloneNode(true));
-                    }
-                }
-
-                while (getItemsTotalLength(this.tickerItems) - getItemLength(getWidestItem(this.tickerItems)) <= getTickerWidth(this.elem)) {
-
-                    for (var _i = 0; _i < newEls.length; _i++) {
-
-                        this.elem.appendChild(newEls[_i].cloneNode(true));
-                    }
-                }
+                this.fill();
             }
 
             this.ticking = true;
